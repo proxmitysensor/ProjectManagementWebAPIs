@@ -7,9 +7,11 @@ namespace ProjectManagementWebAPIs.Controllers
     [Authorize]
     [ApiController]
     [Route("[controller]")]
-    //[RequiredScope(RequiredScopesConfigurationKey = "AzureAd:Scopes")]
+    //[RequiredScope(RequiredScopesConfigurationKey = "AzureAd:Scopes:projectread")]
+    [RequiredScope(scopeRequiredByAPI)]
     public class WeatherForecastController : ControllerBase
     {
+        const string scopeRequiredByAPI = "project.read";
         private static readonly string[] Summaries = new[]
         {
             "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
